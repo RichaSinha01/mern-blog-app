@@ -2,14 +2,14 @@ import React,  { useEffect, useState } from 'react';
 import { Alert, Button, Modal, TextInput, Textarea } from 'flowbite-react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-//import Comment from './Comment';
+import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
-  //const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([]);
   //const [showModal, setShowModal] = useState(false);
   //const [commentToDelete, setCommentToDelete] = useState(null);
   //const navigate = useNavigate();
@@ -34,7 +34,7 @@ export default function CommentSection({ postId }) {
       if (res.ok) {
         setComment('');
         setCommentError(null);
-        //setComments([data, ...comments]);
+        setComments([data, ...comments]);
       }
     } catch (error) {
       setCommentError(error.message);
@@ -162,7 +162,7 @@ export default function CommentSection({ postId }) {
           )}
         </form>
       )}
-      {/*{comments.length === 0 ? (
+      {comments.length === 0 ? (
         <p className='text-sm my-5'>No comments yet!</p>
       ) : (
         <>
@@ -176,17 +176,17 @@ export default function CommentSection({ postId }) {
             <Comment
               key={comment._id}
               comment={comment}
-              onLike={handleLike}
-              onEdit={handleEdit}
-              onDelete={(commentId) => {
+              //onLike={handleLike}
+              //onEdit={handleEdit}
+              /*onDelete={(commentId) => {
                 setShowModal(true);
                 setCommentToDelete(commentId);
-              }}
+              }}*/
             />
           ))}
         </>
       )}
-      <Modal
+      {/*<Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup

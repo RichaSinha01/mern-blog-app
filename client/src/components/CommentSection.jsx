@@ -10,8 +10,8 @@ export default function CommentSection({ postId }) {
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
-  //const [showModal, setShowModal] = useState(false);
-  //const [commentToDelete, setCommentToDelete] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState(null);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,7 +92,7 @@ export default function CommentSection({ postId }) {
     );
   };
 
-  /*const handleDelete = async (commentId) => {
+  const handleDelete = async (commentId) => {
     setShowModal(false);
     try {
       if (!currentUser) {
@@ -109,7 +109,8 @@ export default function CommentSection({ postId }) {
     } catch (error) {
       console.log(error.message);
     }
-  };*/
+  };
+
   return (
     <div className='max-w-2xl mx-auto w-full p-3'>
       {currentUser ? (
@@ -178,15 +179,15 @@ export default function CommentSection({ postId }) {
               comment={comment}
               onLike={handleLike}
               onEdit={handleEdit}
-              /*onDelete={(commentId) => {
+              onDelete={(commentId) => {
                 setShowModal(true);
                 setCommentToDelete(commentId);
-              }}*/
+              }}
             />
           ))}
         </>
       )}
-      {/*<Modal
+      *<Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup
@@ -212,7 +213,7 @@ export default function CommentSection({ postId }) {
             </div>
           </div>
         </Modal.Body>
-      </Modal>*/}
+      </Modal>
     </div>
   );
 }

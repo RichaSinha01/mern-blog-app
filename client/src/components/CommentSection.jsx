@@ -12,7 +12,7 @@ export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
   //const [showModal, setShowModal] = useState(false);
   //const [commentToDelete, setCommentToDelete] = useState(null);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
@@ -56,7 +56,7 @@ export default function CommentSection({ postId }) {
     getComments();
   }, [postId]);
 
-  /*const handleLike = async (commentId) => {
+  const handleLike = async (commentId) => {
     try {
       if (!currentUser) {
         navigate('/sign-in');
@@ -84,7 +84,7 @@ export default function CommentSection({ postId }) {
     }
   };
 
-  const handleEdit = async (comment, editedContent) => {
+  /*const handleEdit = async (comment, editedContent) => {
     setComments(
       comments.map((c) =>
         c._id === comment._id ? { ...c, content: editedContent } : c
@@ -176,7 +176,7 @@ export default function CommentSection({ postId }) {
             <Comment
               key={comment._id}
               comment={comment}
-              //onLike={handleLike}
+              onLike={handleLike}
               //onEdit={handleEdit}
               /*onDelete={(commentId) => {
                 setShowModal(true);

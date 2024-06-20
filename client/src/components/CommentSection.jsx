@@ -187,7 +187,7 @@ export default function CommentSection({ postId }) {
           ))}
         </>
       )}
-      *<Modal
+      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup

@@ -26,7 +26,7 @@ export default function FooterCom() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  50+ Courses
+                  100+ Projects
                 </Footer.Link>
                 <Footer.Link
                   href='/about'
